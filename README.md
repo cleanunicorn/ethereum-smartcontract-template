@@ -20,3 +20,14 @@ Most of the time you'll need to test your application for unauthorized access. I
 
 The user contract is able to call any method of the contract it is given. Check the test [OnlyAuthrorized.t.sol](./src/OnlyAuthrorized.t.sol) to find out how to use the generic caller.
 
+## Testing
+
+```sh
+make test
+```
+
+### Fuzz testing
+
+```sh
+make test-fuzz
+```
