@@ -20,7 +20,7 @@ contract OnlyAuthorizedTest is DSTest {
         (
             bool ok,
             /* bytes memory data */
-        ) = u1.call(
+        ) = u1.externalCall(
             address(oa), 
             abi.encodeWithSelector(
                 oa.changeOwner.selector,

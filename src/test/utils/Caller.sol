@@ -8,7 +8,7 @@ contract Caller {
     /// @param _callData Call data
     /// @return ok is `true` if the call was successful
     /// @return data is the encoded result of the call
-    function call(address _contractAddress, bytes calldata _callData)
+    function externalCall(address _contractAddress, bytes calldata _callData)
         external
         returns (bool, bytes memory)
     {
