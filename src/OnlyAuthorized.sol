@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 contract OnlyAuthorized {
     address private owner = msg.sender;
 
-    modifier onlyOwner {
+    modifier onlyOwner() {
         require(owner == msg.sender, "Only owner");
         _;
     }
