@@ -12,7 +12,9 @@ contract MockProviderTest is DSTest {
         mockProvider = new MockProvider();
     }
 
-    function test_DefaultCalldata_Returns_SetResponse(bytes memory query) public {
+    function test_DefaultCalldata_Returns_SetResponse(bytes memory query)
+        public
+    {
         bytes memory response = "0x1234";
         mockProvider.setDefaultResponse(
             MockProvider.ReturnData({success: true, data: response})
@@ -32,12 +34,15 @@ contract MockProviderTest is DSTest {
     }
 
     function test_SetResponse_For_Query() public {
-        bytes memory query = "0x1234";
-        bytes memory response = "0x5678";
-        mockProvider.setResponse(query, response);
+        bytes memory query = hex"1234";
+        bytes memory response = hex"5678";
+        mockProvider.givenQueryReturnResponse(
+            query,
+            MockProvider.ReturnData({success: true, data: response})
+        );
 
         (bool okReceived, bytes memory responseReceived) = address(mockProvider)
-            .call(abi.encode(query));
+            .call(query);
 
         assertTrue(okReceived, "Should not fail doing a call");
         assertEq(
@@ -45,5 +50,21 @@ contract MockProviderTest is DSTest {
             keccak256(responseReceived),
             "Returned response should match"
         );
+
+        emit log_bytes(response);
+        emit log_bytes(responseReceived);
+    }
+
+    function test_SetResponse_ToFail_ForQuery() public {
+        bytes memory query = hex"1234";
+        mockProvider.givenQueryReturnResponse(
+            query,
+            MockProvider.ReturnData({success: false, data: hex""})
+        );
+
+        (bool okReceived, bytes memory responseReceived) = address(mockProvider)
+            .call(query);
+
+        assertTrue(okReceived == false, "Should fail doing a call");
     }
 }
