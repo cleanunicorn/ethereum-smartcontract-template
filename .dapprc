@@ -6,7 +6,6 @@ export DAPP_BUILD_OPTIMIZE=1
 export DAPP_BUILD_OPTIMIZE_RUNS=1000000
 export DAPP_LINK_TEST_LIBRARIES=0
 export DAPP_TEST_VERBOSITY=1
-export DAPP_TEST_SMTTIMEOUT=500000
 export HEVM_RPC=$RPC_ON
 export ETH_RPC_URL=$ETH_NODE
 
@@ -16,6 +15,8 @@ export ETH_RPC_ACCOUNTS=true
 if [ "$DEEP_FUZZ" == "true" ]
 then 
   export DAPP_TEST_FUZZ_RUNS=50000 # Fuzz for a long time if DEEP_FUZZ is set to true.
+  export DAPP_TEST_SMTTIMEOUT=50000 # SMT solve for a long time if DEEP_FUZZ is set to true.
 else
   export DAPP_TEST_FUZZ_RUNS=100 # Only fuzz briefly if DEEP_FUZZ is not set to true.
+  export DAPP_TEST_SMTTIMEOUT=60000 # Only SMT solve briefly if DEEP_FUZZ is not set to true.
 fi
