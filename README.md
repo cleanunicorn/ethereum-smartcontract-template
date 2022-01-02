@@ -1,10 +1,20 @@
 # Dapptools template
 
-Heavily inspired by [Georgios's template](https://github.com/gakonst/dapptools-template).
+It is heavily inspired by [Georgios's template](https://github.com/gakonst/dapptools-template).
+
+It requires [dapptools](https://github.com/dapphub/dapptools) installed to run properly.
 
 ## Installation
 
-Create a folder for your project and `cd` into it. Using the commands below you will set up your template.
+### GitHub template
+
+It's easiest to start a new project by clicking the ["Use this template"](https://github.com/cleanunicorn/dapptools-template/generate).
+
+### Manual installation
+
+If you want to manually create your project clone the template in a new folder and `cd` into it.
+
+Clone the template, install dependencies and make sure tests work:
 
 ```sh
 git clone https://github.com/cleanunicorn/dapptools-template ./
@@ -14,20 +24,42 @@ make test
 
 ## Features
 
-### Generic caller
 
-Most of the time you'll need to test your application for unauthorized access. In that case, you need a contract that is NOT allowed to call some methods. To do this, you can use the `User` contract and make it call whatever you need.
+### GitHub Actions
 
-The user contract is able to call any method of the contract it is given. Check the test [OnlyAuthrorized.t.sol](./src/OnlyAuthrorized.t.sol) to find out how to use the generic caller.
+The template already comes with GitHub actions configured.
 
-## Testing
+Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example how this would look in your project.
+
+It is currently defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
+
+
+### Testing
+
+Run tests:
 
 ```sh
-make test
+$ make test
 ```
 
-### Fuzz testing
+You can also run a more deeper tests suite:
 
 ```sh
-make test-fuzz
+$ make test-fuzz
 ```
+
+### Libraries
+
+It already comes with
+
+- [openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
+- [ds-test](https://github.com/dapphub/ds-test)
+
+You can install a new library with:
+
+```sh
+$ dapp install
+```
+
+Check the official documentation of [dapp install](https://github.com/dapphub/dapptools/tree/master/src/dapp#dapp-install).
+
