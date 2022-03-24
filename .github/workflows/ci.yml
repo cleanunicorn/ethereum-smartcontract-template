@@ -26,6 +26,7 @@ jobs:
         # Enable this if using forking tests
         env:
          ETH_RPC_URL: ${{ secrets.ETH_NODE }}
+         RPC_ON: yes
         run: nix-shell --run 'make test'
 
   deep-tests:
