@@ -8,3 +8,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `CHANGELOG.md` inspired by [keepachangelog.com](https://keepachangelog.com/en/1.0.0/)
 - Rewrite `README.md`
+- Update Solidity to 0.8.12
