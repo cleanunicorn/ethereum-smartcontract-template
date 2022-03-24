@@ -14,3 +14,6 @@
 [submodule "lib/ds-auth"]
 	path = lib/ds-auth
 	url = https://github.com/dapphub/ds-auth
+[submodule "lib/mockprovider"]
+	path = lib/mockprovider
+	url = https://github.com/cleanunicorn/mockprovider
