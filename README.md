@@ -80,3 +80,9 @@ The template already comes with GitHub actions configured.
 Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example.
 
 Actions are currently defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
+
+## FAQ
+
+### Does this work with [foundry](https://github.com/gakonst/foundry)?
+
+Yes, it does. Just run `forge test` after you've installed foundry.
