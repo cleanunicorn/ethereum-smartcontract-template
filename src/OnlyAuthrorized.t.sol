@@ -24,4 +24,10 @@ contract OnlyAuthorizedTest is DSTest {
 
         assertTrue(!ok, "Only the owner can change owner");
     }
+
+    function test_ShowBlockTestFork() public {
+        uint256 blockNumber = block.number;
+
+        emit log_uint(blockNumber);
+    }
 }

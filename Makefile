@@ -20,7 +20,7 @@ build         :; dapp build
 xclean         :; dapp clean
 debug         :; dapp debug
 lint          :; yarn run lint
-test          :; dapp test # --ffi # enable if you need the `ffi` cheat code on HEVM
+test          :; dapp test --verbosity=2 # --ffi # enable if you need the `ffi` cheat code on HEVM
 test-fuzz	  :; DEEP_FUZZ=true dapp test
 test-coverage :; dapp test --coverage
 test-forking  :; make cache; dapp test --rpc
