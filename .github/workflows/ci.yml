@@ -23,10 +23,11 @@ jobs:
         run: yarn lint:check
 
       - name: Run tests
-        run: nix-shell --run 'make test'
         # Enable this if using forking tests
         # env:
-        #  ETH_RPC_URL: https://eth-mainnet.alchemyapi.io/v2/${{ secrets.ALCHEMY_API_KEY }}
+        #  ETH_NODE: ${{ secrets.ETH_NODE }}
+        #  RPC_ON: yes
+        run: nix-shell --run 'make test'
 
   deep-tests:
     runs-on: ubuntu-latest

@@ -18,8 +18,10 @@ Clone the template, install dependencies and make sure tests work:
 
 ```sh
 git clone https://github.com/cleanunicorn/dapptools-template ./
-make # This installs the project's dependencies.
-make test
+# Install the project's dependencies
+make 
+# Run tests
+make test 
 ```
 
 ## Features
@@ -30,41 +32,51 @@ Included libraries in [`lib`](lib/):
 - [openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) - OpenZeppelin contracts library
 - [mockprovider](https://github.com/cleanunicorn/mockprovider) - Mocking library
 
-### GitHub Actions
+## Commands
 
-The template already comes with GitHub actions configured.
+- `make` - installs solc locally and all dependencies
+- `make build` - builds your project
+- `make xclean` - removes compiled files
+- `make debug` - starts debug
+- `make lint` - lints files
+- `make test` - runs tests
+- `make test-fuzz` - runs tests with higher fuzz runs
+- `make test-coverage` - runs coverage showing which lines of code are covered by tests
 
-Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example how this would look in your project.
+### Testing locally
 
-It is currently defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
-
-
-### Testing
-
-Run tests:
+Normally you would run your tests on the local evm engine.
 
 ```sh
 $ make test
 ```
 
-You can also run a more deeper tests suite:
+### Testing forked chain
+
+You can also fork a chain by providing an RPC url to something like [Alchemy](https://www.alchemy.com/) or [Infura](https://infura.io/).
+
+To enable blockchain forking, you need to copy `.env.example` to `.env` and change `RPC_ON` and `ETH_NODE` to match your environment.
 
 ```sh
-$ make test-fuzz
+export RPC_ON=yes
+export ETH_NODE=https://eth-mainnet.alchemyapi.io/v2/ALCHEMY_API_KEY
 ```
 
-### Libraries
+After that you can run `make test` normally
 
-It already comes with
+You need to add the RPC url to your GitHub secrets as `ETH_NODE` to enable fork testing in GitHub Actions. Also make sure to uncomment these lines in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
-- [openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
-- [ds-test](https://github.com/dapphub/ds-test)
-
-You can install a new library with:
-
-```sh
-$ dapp install
+```yaml
+# Enable this if using forking tests
+env:
+    ETH_NODE: ${{ secrets.ETH_NODE }}
+    RPC_ON: yes
 ```
 
-Check the official documentation of [dapp install](https://github.com/dapphub/dapptools/tree/master/src/dapp#dapp-install).
+### GitHub Actions
 
+The template already comes with GitHub actions configured.
+
+Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example.
+
+Actions are currently defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
