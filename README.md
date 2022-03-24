@@ -24,6 +24,11 @@ make test
 
 ## Features
 
+Included libraries in [`lib`](lib/):
+
+- [ds-test](https://github.com/dapphub/ds-test) - Test framework for DappTools
+- [openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) - OpenZeppelin contracts library
+- [mockprovider](https://github.com/cleanunicorn/mockprovider) - Mocking library
 
 ### GitHub Actions
 
