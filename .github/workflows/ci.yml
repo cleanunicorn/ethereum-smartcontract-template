@@ -25,7 +25,7 @@ jobs:
       - name: Run tests
         # Enable this if using forking tests
         env:
-         ETH_RPC_URL: ${{ secrets.ETH_NODE }}
+         ETH_NODE: ${{ secrets.ETH_NODE }}
          RPC_ON: yes
         run: nix-shell --run 'make test'
 
