@@ -64,7 +64,7 @@ export ETH_NODE=https://eth-mainnet.alchemyapi.io/v2/ALCHEMY_API_KEY
 
 After that you can run `make test` normally
 
-You also need to add these variables to your GitHub secrets to enable forking in GitHub Actions.
+You need to add the RPC url to your GitHub secrets as `ETH_NODE` to enable fork testing in GitHub Actions. Also make sure to uncomment these lines in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
 ```yaml
 # Enable this if using forking tests
@@ -72,8 +72,6 @@ env:
     ETH_NODE: ${{ secrets.ETH_NODE }}
     RPC_ON: yes
 ```
-
-Also make sure to add your RPC url to GitHub's secrets section.
 
 ### GitHub Actions
 
