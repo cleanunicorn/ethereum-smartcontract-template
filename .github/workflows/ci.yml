@@ -9,15 +9,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - uses: cachix/install-nix-action@v13
-      - uses: cachix/cachix-action@v10
+      - name: Install Foundry
+        uses: onbjerg/foundry-toolchain@v1.0.6
         with:
-          name: dapp
+          version: nightly
+
+      - name: Install node
+        uses: actions/setup-node@v2
+
+      - name: Clone repo with submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install yarn
+        run: npm i -g yarn
 
       - name: Install dependencies
-        run: nix-shell --run 'make'
+        run: make
         
       - name: Check contracts are linted
         run: yarn lint:check
@@ -27,7 +36,7 @@ jobs:
         # env:
         #  ETH_NODE: ${{ secrets.ETH_NODE }}
         #  RPC_ON: yes
-        run: nix-shell --run 'make test'
+        run: make test
 
   deep-tests:
     runs-on: ubuntu-latest

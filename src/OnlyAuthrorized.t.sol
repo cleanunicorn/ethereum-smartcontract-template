@@ -24,4 +24,6 @@ contract OnlyAuthorizedTest is DSTest {
 
         assertTrue(!ok, "Only the owner can change owner");
     }
+
+    function testExample() public {}
 }
