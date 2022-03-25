@@ -18,6 +18,6 @@ build         :; forge build
 xclean        :; forge clean
 # debug         :; dapp debug
 lint          :; yarn run lint
-test          :; forge test
+test          :; forge test --gas-report
 watch		  :; forge test --watch src/ 
 # test-coverage :; dapp test --coverage
