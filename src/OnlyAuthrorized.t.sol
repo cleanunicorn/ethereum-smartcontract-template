@@ -14,6 +14,10 @@ contract OnlyAuthorizedTest is DSTest {
         oa = new OnlyAuthorized();
     }
 
+    function testCanChangeOwner() public {
+        oa.changeOwner(address(0x1));
+        assertEq(oa.owner(), address(0x1));
+    }
     function testOtherUsersCannotChangeOwner() public {
         Caller user = new Caller();
 

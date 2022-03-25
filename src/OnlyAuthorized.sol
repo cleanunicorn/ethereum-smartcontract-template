@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 contract OnlyAuthorized {
-    address private owner = msg.sender;
+    address public owner = msg.sender;
 
     modifier onlyOwner() {
         require(owner == msg.sender, "Only owner");
@@ -12,5 +12,11 @@ contract OnlyAuthorized {
 
     function changeOwner(address _newOwner) public onlyOwner {
         owner = _newOwner;
+    }
+
+    uint256 public n;
+
+    function setN(uint256 n_) public {
+        n = n_;
     }
 }
