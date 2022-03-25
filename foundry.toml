@@ -1,0 +1,7 @@
+[default]
+optimizer = true
+optimizer_runs = 20000
+gas_reports = ["*"]
+
+[ci]
+verbosity = 4

@@ -15,15 +15,16 @@ contract OnlyAuthorizedTest is DSTest {
     }
 
     function testOtherUsersCannotChangeOwner() public {
-        Caller u1 = new Caller();
+        Caller user = new Caller();
 
-        (bool ok, ) = u1.externalCall(
+        (bool ok, ) = user.externalCall(
             address(oa),
-            abi.encodeWithSelector(oa.changeOwner.selector, (address(1)))
+            abi.encodeWithSelector(
+                oa.changeOwner.selector,
+                (address(0xdeadbeef))
+            )
         );
 
         assertTrue(!ok, "Only the owner can change owner");
     }
-
-    function testExample() public {}
 }

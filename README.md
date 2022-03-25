@@ -37,10 +37,9 @@ Included libraries in [`lib`](lib/):
 - `make` - installs solc locally and all dependencies
 - `make build` - builds your project
 - `make xclean` - removes compiled files
-- `make debug` - starts debug
+<!-- - `make debug` - starts debug -->
 - `make lint` - lints files
 - `make test` - runs tests
-- `make test-fuzz` - runs tests with higher fuzz runs
 - `make test-coverage` - runs coverage showing which lines of code are covered by tests
 
 ### Testing locally
@@ -62,7 +61,7 @@ export RPC_ON=yes
 export ETH_NODE=https://eth-mainnet.alchemyapi.io/v2/ALCHEMY_API_KEY
 ```
 
-After that you can run `make test` normally
+After adding the variables to your `.env` you can run `make test` normally
 
 You need to add the RPC url to your GitHub secrets as `ETH_NODE` to enable fork testing in GitHub Actions. Also make sure to uncomment these lines in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
