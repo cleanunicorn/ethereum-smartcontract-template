@@ -2,7 +2,7 @@
 
 This development quick start template is heavily inspired by [Georgios's template](https://github.com/gakonst/dapptools-template). Over time it was migrated to use [foundry](https://github.com/gakonst/foundry) since dapptools was deprecated.
 
-It requires [foundry](https://github.com/gakonst/foundry) installed to run. You can find instructions here [foundry installation](https://github.com/gakonst/foundry#installation).
+It requires [Foundry](https://github.com/gakonst/foundry) installed to run. You can find instructions here [Foundry installation](https://github.com/gakonst/foundry#installation).
 
 ## Installation
 
