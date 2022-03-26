@@ -1,8 +1,8 @@
 # Dapptools template
 
-It is heavily inspired by [Georgios's template](https://github.com/gakonst/dapptools-template).
+This development quick start template is heavily inspired by [Georgios's template](https://github.com/gakonst/dapptools-template). Over time it was migrated to use [foundry](https://github.com/gakonst/foundry) since dapptools was deprecated.
 
-It requires [dapptools](https://github.com/dapphub/dapptools) installed to run properly.
+It requires [foundry](https://github.com/gakonst/foundry) installed to run. You can find instructions here [foundry installation](https://github.com/gakonst/foundry#installation).
 
 ## Installation
 
@@ -12,13 +12,15 @@ It's easiest to start a new project by clicking the ["Use this template"](https:
 
 ### Manual installation
 
-If you want to manually create your project clone the template in a new folder and `cd` into it.
+If you want to create your project manually, clone the template in a new folder and `cd` into it.
 
 Clone the template, install dependencies and make sure tests work:
 
 ```sh
-git clone https://github.com/cleanunicorn/dapptools-template ./
-# Install the project's dependencies
+mkdir cool-dapp
+cd cool-dapp
+foundry init --template https://github.com/cleanunicorn/dapptools-template 
+# Install the project's dependencies (libs and yarn packages)
 make 
 # Run tests
 make test 
@@ -26,31 +28,96 @@ make test
 
 ## Features
 
+For Foundry specific features, refer to:
+
+- [repository](https://github.com/gakonst/foundry)
+- [cheat codes](https://github.com/gakonst/foundry/tree/master/forge#cheat-codes)
+- [Foundry book](https://onbjerg.github.io/foundry-book/index.html)
+
+This template comes with an additional set of features explained below.
+
+### Solidity libraries
+
 Included libraries in [`lib`](lib/):
 
 - [ds-test](https://github.com/dapphub/ds-test) - Test framework for DappTools
 - [openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) - OpenZeppelin contracts library
 - [mockprovider](https://github.com/cleanunicorn/mockprovider) - Mocking library
 
+### GitHub Actions
+
+The template already comes with GitHub actions configured, which means that the project will be tested on every `push` and `pull request`.
+
+Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example.
+
+Actions are defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
+
 ## Commands
 
-- `make` - installs solc locally and all dependencies
-- `make build` - builds your project
-- `make xclean` - removes compiled files
-<!-- - `make debug` - starts debug -->
-- `make lint` - lints files
-- `make test` - runs tests
-- `make test-coverage` - runs coverage showing which lines of code are covered by tests
+- `make setup` - initialize libraries and yarn packages
+- `make build` - build your project
+- `make xclean` - remove compiled files
+- `make lint` - lint files
+- [`make test`](#testing) - run tests
+- `make watch` - watch files and re-run tests
 
-### Testing locally
+## Testing
 
 Normally you would run your tests on the local evm engine.
 
 ```sh
 $ make test
+forge test --gas-report
+[⠊] Compiling...
+[⠑] Compiling 19 files with 0.8.13
+Compiler run successful
+
+Running 2 tests for OnlyAuthorizedTest.json:OnlyAuthorizedTest
+[PASS] testCanChangeOwner() (gas: 11542)
+[PASS] testOtherUsersCannotChangeOwner() (gas: 156817)
+╭─────────────────┬─────────────────┬──────┬────────┬──────┬─────────╮
+│ Caller contract ┆                 ┆      ┆        ┆      ┆         │
+╞═════════════════╪═════════════════╪══════╪════════╪══════╪═════════╡
+│ Deployment Cost ┆ Deployment Size ┆      ┆        ┆      ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ 114159          ┆ 602             ┆      ┆        ┆      ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ Function Name   ┆ min             ┆ avg  ┆ median ┆ max  ┆ # calls │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ externalCall    ┆ 6419            ┆ 6419 ┆ 6419   ┆ 6419 ┆ 1       │
+╰─────────────────┴─────────────────┴──────┴────────┴──────┴─────────╯
+╭─────────────────────────┬─────────────────┬──────┬────────┬──────┬─────────╮
+│ OnlyAuthorized contract ┆                 ┆      ┆        ┆      ┆         │
+╞═════════════════════════╪═════════════════╪══════╪════════╪══════╪═════════╡
+│ Deployment Cost         ┆ Deployment Size ┆      ┆        ┆      ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ 133694                  ┆ 607             ┆      ┆        ┆      ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ Function Name           ┆ min             ┆ avg  ┆ median ┆ max  ┆ # calls │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ changeOwner             ┆ 2504            ┆ 3980 ┆ 3980   ┆ 5457 ┆ 2       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ owner                   ┆ 335             ┆ 335  ┆ 335    ┆ 335  ┆ 1       │
+╰─────────────────────────┴─────────────────┴──────┴────────┴──────┴─────────╯
+╭─────────────────────────────┬─────────────────┬────────┬────────┬────────┬─────────╮
+│ OnlyAuthorizedTest contract ┆                 ┆        ┆        ┆        ┆         │
+╞═════════════════════════════╪═════════════════╪════════╪════════╪════════╪═════════╡
+│ Deployment Cost             ┆ Deployment Size ┆        ┆        ┆        ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ 741677                      ┆ 3639            ┆        ┆        ┆        ┆         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ Function Name               ┆ min             ┆ avg    ┆ median ┆ max    ┆ # calls │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤
+│ setUp                       ┆ 171174          ┆ 171174 ┆ 171174 ┆ 171174 ┆ 2       │
+╰─────────────────────────────┴─────────────────┴────────┴────────┴────────┴─────────╯
+
 ```
 
 ### Testing forked chain
+
+Work in progress...
+
+<!-- ### Testing forked chain
 
 You can also fork a chain by providing an RPC url to something like [Alchemy](https://www.alchemy.com/) or [Infura](https://infura.io/).
 
@@ -70,18 +137,7 @@ You need to add the RPC url to your GitHub secrets as `ETH_NODE` to enable fork 
 env:
     ETH_NODE: ${{ secrets.ETH_NODE }}
     RPC_ON: yes
-```
+``` -->
 
-### GitHub Actions
 
-The template already comes with GitHub actions configured.
-
-Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example.
-
-Actions are currently defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
-
-## FAQ
-
-### Does this work with [foundry](https://github.com/gakonst/foundry)?
-
-Yes, it does. Just run `forge test` after you've installed foundry.
+<!-- ## FAQ -->
