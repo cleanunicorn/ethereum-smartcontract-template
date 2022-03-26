@@ -8,7 +8,7 @@ It requires [Foundry](https://github.com/gakonst/foundry) installed to run. You 
 
 ### GitHub template
 
-It's easiest to start a new project by clicking the ["Use this template"](https://github.com/cleanunicorn/dapptools-template/generate).
+It's easiest to start a new project by clicking the ["Use this template"](https://github.com/cleanunicorn/ethereum-smartcontract-template/generate).
 
 ### Manual installation
 
@@ -19,7 +19,7 @@ Clone the template, install dependencies and make sure tests work:
 ```sh
 mkdir cool-dapp
 cd cool-dapp
-foundry init --template https://github.com/cleanunicorn/dapptools-template 
+foundry init --template https://github.com/cleanunicorn/ethereum-smartcontract-template 
 # Install the project's dependencies (libs and yarn packages)
 make 
 # Run tests
@@ -48,7 +48,7 @@ Included libraries in [`lib`](lib/):
 
 The template already comes with GitHub actions configured, which means that the project will be tested on every `push` and `pull request`.
 
-Check the [project's actions](https://github.com/cleanunicorn/dapptools-template/actions) for an example.
+Check the [project's actions](https://github.com/cleanunicorn/ethereum-smartcontract-template/actions) for an example.
 
 Actions are defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
 
