@@ -12,5 +12,5 @@ build         :; forge build
 xclean        :; forge clean
 lint          :; yarn run lint
 test          :; forge test --gas-report
-test-fork     :; forge test --gas-report --fork-url ${ETH_NODE}
+# test-fork     :; forge test --gas-report --fork-url ${ETH_NODE}
 watch		  :; forge test --watch src/ 
