@@ -52,6 +52,14 @@ Check the [project's actions](https://github.com/cleanunicorn/ethereum-smartcont
 
 Actions are defined in [.github/workflows/ci.yml](.github/workflows/ci.yml).
 
+### GitHub templates
+
+The template comes with a list of templates:
+
+- [feature](.github/ISSUE_TEMPLATE/feature.md)
+- [bug](.github/ISSUE_TEMPLATE/bug.md)
+- [pull request](.github/pull_request_template.md)
+
 ## Commands
 
 - `make setup` - initialize libraries and yarn packages
