@@ -67,6 +67,7 @@ The template comes with a list of templates:
 - `make xclean` - remove compiled files
 - `make lint` - lint files
 - [`make test`](#testing) - run tests
+- `make test-gasreport` - run tests and show gas report
 - `make watch` - watch files and re-run tests
 
 ## Testing
