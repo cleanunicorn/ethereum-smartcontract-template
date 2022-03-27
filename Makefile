@@ -8,9 +8,10 @@ update-libs		:; git submodule update --init --recursive
 install-deps	:; yarn install
 
 # Build & test & deploy
-build         :; forge build
-xclean        :; forge clean
-lint          :; yarn run lint
-test          :; forge test --gas-report
+build         	:; forge build
+xclean        	:; forge clean
+lint          	:; yarn run lint
+test          	:; forge test
+test-gasreport 	:; forge test --gas-report
 # test-fork     :; forge test --gas-report --fork-url ${ETH_NODE}
-watch		  :; forge test --watch src/ 
+watch		  	:; forge test --watch src/ 
