@@ -5,7 +5,7 @@
 # Update dependencies
 setup			:; make update-libs ; make install-deps
 update-libs		:; git submodule update --init --recursive
-install-deps	:; yarn install
+install-deps	:; yarn install --frozen-lockfile
 
 # Build & test & deploy
 build         	:; forge build
