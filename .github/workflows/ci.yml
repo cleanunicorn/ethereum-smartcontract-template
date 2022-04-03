@@ -16,14 +16,14 @@ jobs:
 
       - name: Install node
         uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          node-version: 16
 
       - name: Clone repo with submodules
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-      - name: Install yarn
-        run: npm i -g yarn
 
       - name: Install dependencies
         run: make
