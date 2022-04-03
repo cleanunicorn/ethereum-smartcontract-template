@@ -16,7 +16,7 @@
     "solhint-plugin-prettier": "^0.0.5"
   },
   "scripts": {
-    "lint": "yarn prettier && yarn solhint",
+    "lint": "yarn prettier:check && yarn solhint",
     "lint:check": "yarn prettier:check && yarn solhint:check",
     "prettier": "yarn prettier:check --write",
     "prettier:check": "prettier --check \"src/**/*.sol\"",
