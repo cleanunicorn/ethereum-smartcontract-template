@@ -32,12 +32,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidity-parser/parser@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "@solidity-parser/parser@npm:0.13.2"
+"@solidity-parser/parser@npm:^0.14.1":
+  version: 0.14.1
+  resolution: "@solidity-parser/parser@npm:0.14.1"
   dependencies:
     antlr4ts: ^0.5.0-alpha.4
-  checksum: bfdd8ec7f7b88f3cc75e333e03202cde5e5dacbec7f00612f22dec5e22b0995713637872ce202064d182bae56a274fcb2ca8715ad5482af5e8b38728a0216cf7
+  checksum: 616df6c31007710f2a99f8022fa5917968bbe83293cdc0154ba378aad405c0fc0b7af45cf2c99d159ff0b24b67c7a9bc01f80178d086c705682f2f8c7f771137
   languageName: node
   linkType: hard
 
@@ -372,6 +372,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emoji-regex@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "emoji-regex@npm:10.1.0"
+  checksum: 5bc780fc4d75f89369155a87c55f7e83a0bf72bcccda7df7f2c570cde4738d8b17d112d12afdadfec16647d1faef6501307b4304f81d35c823a938fe6547df0f
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^7.0.1":
   version: 7.0.3
   resolution: "emoji-regex@npm:7.0.3"
@@ -383,13 +390,6 @@ __metadata:
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
   checksum: d4c5c39d5a9868b5fa152f00cada8a936868fd3367f33f71be515ecee4c803132d11b31a6222b2571b1e5f7e13890156a94880345594d0ce7e3c9895f560f192
-  languageName: node
-  linkType: hard
-
-"emoji-regex@npm:^9.2.2":
-  version: 9.2.2
-  resolution: "emoji-regex@npm:9.2.2"
-  checksum: 8487182da74aabd810ac6d6f1994111dfc0e331b01271ae01ec1eb0ad7b5ecc2bbbbd2f053c05cb55a1ac30449527d819bbfbf0e3de1023db308cbcb47f86601
   languageName: node
   linkType: hard
 
@@ -880,10 +880,10 @@ __metadata:
   resolution: "magnus@workspace:."
   dependencies:
     copyfiles: ^2.4.1
-    prettier: ^2.4.1
-    prettier-plugin-solidity: ^1.0.0-beta.18
+    prettier: ^2.6.2
+    prettier-plugin-solidity: ^1.0.0-dev.21
     rimraf: ^3.0.2
-    solhint: ^3.3.6
+    solhint: ^3.3.7
     solhint-plugin-prettier: ^0.0.5
   languageName: unknown
   linkType: soft
@@ -1064,19 +1064,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-solidity@npm:^1.0.0-beta.18":
-  version: 1.0.0-beta.18
-  resolution: "prettier-plugin-solidity@npm:1.0.0-beta.18"
+"prettier-plugin-solidity@npm:^1.0.0-dev.21":
+  version: 1.0.0-dev.21
+  resolution: "prettier-plugin-solidity@npm:1.0.0-dev.21"
   dependencies:
-    "@solidity-parser/parser": ^0.13.2
-    emoji-regex: ^9.2.2
+    "@solidity-parser/parser": ^0.14.1
+    emoji-regex: ^10.0.0
     escape-string-regexp: ^4.0.0
     semver: ^7.3.5
     solidity-comments-extractor: ^0.0.7
-    string-width: ^4.2.2
+    string-width: ^4.2.3
   peerDependencies:
     prettier: ^2.3.0
-  checksum: 9082f949275b5b4b8e78cb70b384e759b29f6b7ffaf35ec42db400ed0b4ce93c1453cffcb98c8d071dd8578a3aed2420000674c8aedaf8bb486b3bbc9d7d9457
+  checksum: 3c43bb7404c380091310e59be718ec0161d268e4674e5e658723f7a7bc9b0f541df9816a8e7bd93b9e73a289f1e13ea1eab58027d4ee51d25460ea6e63c0c99e
   languageName: node
   linkType: hard
 
@@ -1089,12 +1089,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "prettier@npm:2.4.1"
+"prettier@npm:^2.6.2":
+  version: 2.6.2
+  resolution: "prettier@npm:2.6.2"
   bin:
     prettier: bin-prettier.js
-  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
+  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
   languageName: node
   linkType: hard
 
@@ -1311,11 +1311,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solhint@npm:^3.3.6":
-  version: 3.3.6
-  resolution: "solhint@npm:3.3.6"
+"solhint@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "solhint@npm:3.3.7"
   dependencies:
-    "@solidity-parser/parser": ^0.13.2
+    "@solidity-parser/parser": ^0.14.1
     ajv: ^6.6.1
     antlr4: 4.7.1
     ast-parents: 0.0.1
@@ -1335,7 +1335,7 @@ __metadata:
       optional: true
   bin:
     solhint: solhint.js
-  checksum: 0ea5c96540adbc33e3c0305dacf270bcdfdbfb6f64652eb3584de2770b98dc1383bd65faf8506fbee95d773e359fe7f3b0a15c492a0596fcc14de0d609a0a335
+  checksum: 140a4660b691ea78aa7de19aca2123991fb4f9bc7be574e1573ae428b356e12919805df56c2892ddbdd031a4a4db477a81425ad85aac6672f3fb73f4887c2abb
   languageName: node
   linkType: hard
 
@@ -1374,7 +1374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.2":
+"string-width@npm:^4.1.0, string-width@npm:^4.2.0, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3"
   dependencies:
