@@ -1,7 +1,7 @@
 arrowParens: avoid
-bracketSpacing: true
+bracketSpacing: false
 endOfLine: auto
-printWidth: 120
+printWidth: 80
 singleQuote: false
 tabWidth: 4
 trailingComma: all
