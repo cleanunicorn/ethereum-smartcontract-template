@@ -3,7 +3,7 @@
   "author": "Daniel Luca (@CleanUnicorn)",
   "license": "Apache-2.0",
   "version": "1.0.0",
-  "description": "Sweeper contracts",
+  "description": "Smart Contract starting template",
   "files": [
     "*.sol"
   ],
