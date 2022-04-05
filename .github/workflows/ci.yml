@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           cache: yarn
+          key: ${{ runner.os }}-SomeStringLiteral-${{ hashFiles('**/lockfiles') }}
           node-version: 16
 
       - name: Clone repo with submodules
