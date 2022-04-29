@@ -19,7 +19,7 @@ Clone the template, install dependencies and make sure tests work:
 ```sh
 mkdir cool-dapp
 cd cool-dapp
-foundry init --template https://github.com/cleanunicorn/ethereum-smartcontract-template 
+forge init --template https://github.com/cleanunicorn/ethereum-smartcontract-template 
 # Install the project's dependencies (libs and yarn packages)
 make 
 # Run tests
