@@ -30,9 +30,9 @@ make test
 
 For Foundry specific features, refer to:
 
-- [repository](https://github.com/gakonst/foundry)
-- [cheat codes](https://github.com/gakonst/foundry/tree/master/forge#cheat-codes)
-- [Foundry book](https://onbjerg.github.io/foundry-book/index.html)
+- [repository](https://github.com/foundry-rs/foundry)
+- [cheat codes](https://github.com/foundry-rs/foundry/blob/master/forge/README.md#cheat-codes)
+- [Foundry book](https://book.getfoundry.sh/)
 
 This template comes with an additional set of features explained below.
 
