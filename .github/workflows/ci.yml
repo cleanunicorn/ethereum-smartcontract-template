@@ -58,6 +58,9 @@ jobs:
       - name: Run tests
         run: make test
 
+      - name: [TEST] Fail to see how summary looks like
+        run: oops
+
       - name: Add test summary
         run: |
           echo '## Test results' >> $GITHUB_STEP_SUMMARY
