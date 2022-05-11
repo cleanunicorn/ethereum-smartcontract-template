@@ -69,6 +69,8 @@ jobs:
       - "tests"
       - "lint"
 
+    runs-on: ubuntu-latest
+
     steps:
       - name: Add summary
         run: |
