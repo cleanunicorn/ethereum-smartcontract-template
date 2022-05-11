@@ -1,4 +1,4 @@
-name: Tests
+name: Continuous Integration
 
 on:
   - push
@@ -18,13 +18,16 @@ jobs:
       - name: Install yarn
         run: npm i -g yarn
 
+      - name: Install dependencies
+        run: make        
+
       - name: Check contracts are linted
         run: yarn lint:check
 
       - name: Add lint summary
         run: |
           echo '## Lint results' >> $GITHUB_STEP_SUMMARY
-          echo '✅ Passed'
+          echo '✅ Passed' >> $GITHUB_STEP_SUMMARY
 
   tests:
     runs-on: ubuntu-latest
@@ -37,6 +40,9 @@ jobs:
 
       - name: Install node
         uses: actions/setup-node@v2
+
+      - name: Install yarn
+        run: npm i -g yarn
 
       - name: Clone repo with submodules
         uses: actions/checkout@v2
@@ -55,7 +61,7 @@ jobs:
       - name: Add test summary
         run: |
           echo '## Test results' >> $GITHUB_STEP_SUMMARY
-          echo '✅ Passed'
+          echo '✅ Passed' >> $GITHUB_STEP_SUMMARY
 
 
   full-pass:
@@ -63,6 +69,7 @@ jobs:
       - "tests"
       - "lint"
 
+    steps:
       - name: Add summary
         run: |
           echo '## Summary' >> $GITHUB_STEP_SUMMARY
