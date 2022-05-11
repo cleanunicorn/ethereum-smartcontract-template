@@ -1,10 +1,34 @@
-name: Tests
+name: Continuous Integration
 
 on:
   - push
   - pull_request
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+
+      - name: Clone repo
+        uses: actions/checkout@v2
+
+      - name: Install yarn
+        run: npm i -g yarn
+
+      - name: Install dependencies
+        run: make        
+
+      - name: Check contracts are linted
+        run: yarn lint:check
+
+      - name: Add lint summary
+        run: |
+          echo '## Lint results' >> $GITHUB_STEP_SUMMARY
+          echo '✅ Passed' >> $GITHUB_STEP_SUMMARY
+
   tests:
     runs-on: ubuntu-latest
 
@@ -17,22 +41,38 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v2
 
+      - name: Install yarn
+        run: npm i -g yarn
+
       - name: Clone repo with submodules
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-      - name: Install yarn
-        run: npm i -g yarn
 
       - name: Install dependencies
         run: make
 
       - name: Show Foundry config
         run: forge config
-        
-      - name: Check contracts are linted
-        run: yarn lint:check
 
       - name: Run tests
         run: make test
+
+      - name: Add test summary
+        run: |
+          echo '## Test results' >> $GITHUB_STEP_SUMMARY
+          echo '✅ Passed' >> $GITHUB_STEP_SUMMARY
+
+
+  full-pass:
+    needs:
+      - "tests"
+      - "lint"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add summary
+        run: |
+          echo '## Summary' >> $GITHUB_STEP_SUMMARY
+          echo '✅ All passed' >> $GITHUB_STEP_SUMMARY
