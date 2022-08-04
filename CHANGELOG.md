@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+### Changed
+- Update `foundry.toml` to Foundry new format
+
+### Deprecated
+
+
 ## [1.0.0] - 2022-03-26
 
 - Remake the project to support [Foundry](https://github.com/gakonst/foundry) first and remove support for dapptools
