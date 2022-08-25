@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Update `foundry.toml` to Foundry new format
-- Replace 'dapphub/ds-test' with 'foundry-rs/forge-std'
+- Replace ['dapphub/ds-test'](https://github.com/dapphub/ds-test) with ['foundry-rs/forge-std'](https://github.com/foundry-rs/forge-std)
 
 ### Deprecated
 
