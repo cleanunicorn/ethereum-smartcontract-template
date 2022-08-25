@@ -122,6 +122,10 @@ Running 2 tests for OnlyAuthorizedTest.json:OnlyAuthorizedTest
 
 ```
 
+### Changes
+
+Listed in the [CHANGELOG.md](./CHANGELOG.md) file which follows the https://keepachangelog.com/en/1.0.0/ format. 
+
 ### Testing forked chain
 
 Work in progress...
